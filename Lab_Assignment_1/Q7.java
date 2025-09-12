@@ -15,15 +15,26 @@ public class Q7 {
         int x4 = sc.nextInt();
         int y4 = sc.nextInt();
 
-        double slope_1 = (y2 - y1) / (x2 - x1);
-        double slope_2 = (y4 - y3) / (x4 - x3);
+        double slope_1, slope_2;
 
-        if(slope_1 == slope_2){
+        if(x2 - x1 == 0 && x4 - x3 == 0){
             System.out.println("The two lines are parallel");
         }
-        else{
+        else if(x2 - x1 == 0 || x4 - x3 == 0){
             System.out.println("The two lines are intersecting");
         }
+        else{
+            slope_1 = (double)(y2 - y1) / (x2 - x1);
+            slope_2 = (double)(y4 - y3) / (x4 - x3);
 
+            if(slope_1 == slope_2){
+                System.out.println("The two lines are parallel");
+            }
+            else{
+                System.out.println("The two lines are intersecting");
+            }
+        }
+
+        sc.close();
     }    
 }
