@@ -1,6 +1,19 @@
 import java.util.Scanner;
 
 public class ExceptionDemo {
+    static void handleInterrupted() {
+        try {
+            System.out.println("Thread going to sleep for 2 seconds");
+            Thread.sleep(2000);
+        } 
+        catch (InterruptedException e) {
+            System.out.println("Error: Thread was interrupted");
+        }
+        finally {
+            System.out.println("Thread operation complete\n");
+        }
+    }
+
     static void handleArrayIndexOutOfBounds() {
         int[] arr = {10, 20, 30};
         try {
@@ -100,40 +113,44 @@ public class ExceptionDemo {
         int choice;
         while(true){
             System.out.println("Exception Handling Menu:");
-            System.out.println("1. ArrayIndexOutOfBoundsException");
-            System.out.println("2. IllegalArgumentException");
-            System.out.println("3. IndexOutOfBoundsException");
-            System.out.println("4. NegativeArraySizeException");
-            System.out.println("5. NullPointerException");
-            System.out.println("6. IllegalAccess Check");
-            System.out.println("7. Exit");
+            System.out.println("1. InterruptedException");
+            System.out.println("2. ArrayIndexOutOfBoundsException");
+            System.out.println("3. IllegalArgumentException");
+            System.out.println("4. IndexOutOfBoundsException");
+            System.out.println("5. NegativeArraySizeException");
+            System.out.println("6. NullPointerException");
+            System.out.println("7. IllegalAccess Check");
+            System.out.println("8. Exit");
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
             switch(choice) {
                 case 1:
-                    handleArrayIndexOutOfBounds();
+                    handleInterrupted();
                     break;
                 case 2:
+                    handleArrayIndexOutOfBounds();
+                    break;
+                case 3:
                     System.out.print("Enter marks (0-100): ");
                     int marks = sc.nextInt();
                     handleIllegalArgument(marks);
                     break;
-                case 3:
+                case 4:
                     handleIndexOutOfBounds();
                     break;
-                case 4:
+                case 5:
                     handleNegativeArraySize();
                     break;
-                case 5:
+                case 6:
                     handleNullPointer();
                     break;
-                case 6:
+                case 7:
                     System.out.print("Enter name: ");
                     sc.nextLine(); 
                     String name = sc.nextLine();
                     handleIllegalAccess(name);
                     break;
-                case 7:
+                case 8:
                     System.out.println("Exiting program...");
                     sc.close();
                     return;

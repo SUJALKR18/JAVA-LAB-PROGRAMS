@@ -29,6 +29,10 @@ class MyStack implements LinearDs{
     }
 
     public void displayElement(){
+        if(top == -1){
+            System.out.println("Stack is Empty");
+            return;
+        }
         int start = top;
         System.out.println(".Elements Of Stack are :- ");
         while(start != -1){
@@ -73,6 +77,10 @@ class MyQueue implements LinearDs{
     }
 
     public void displayElement(){
+        if(size == 0){
+            System.out.println("Queue is Empty");
+            return;
+        }
         System.out.println("Element Of Queue are :- ");
         if(rear > front){
             for(int i = front ; i <= rear ; i++){
